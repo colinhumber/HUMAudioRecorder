@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'HUMAudioRecorder_Example', :exclusive => true do
+  pod "HUMAudioRecorder", :path => "../"
+end
+
+target 'HUMAudioRecorder_Tests', :exclusive => true do
+  pod "HUMAudioRecorder", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
