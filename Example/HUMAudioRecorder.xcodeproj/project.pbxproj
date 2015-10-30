@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10C4BA9D2055BDE11AE9DA3D /* Pods_HUMAudioRecorder_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F7F72D75C30E7E839C1596 /* Pods_HUMAudioRecorder_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		16FB8A32C321ED8AB08E97F5 /* Pods_HUMAudioRecorder_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC47EC20C065D0855E8301 /* Pods_HUMAudioRecorder_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0DBC40BE1754BE93727C5BE0 /* libPods-HUMAudioRecorder_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E62F94BD8EBB48AB9510367 /* libPods-HUMAudioRecorder_Tests.a */; };
+		12354A11ED1875C6885596BB /* libPods-HUMAudioRecorder_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D873FD783E901DFE61B6BED7 /* libPods-HUMAudioRecorder_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,7 +39,8 @@
 		077DCEB85A90474ED64E2888 /* Pods-HUMAudioRecorder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUMAudioRecorder_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUMAudioRecorder_Tests/Pods-HUMAudioRecorder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2060BCCFC985F395C2EF03EE /* HUMAudioRecorder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HUMAudioRecorder.podspec; path = ../HUMAudioRecorder.podspec; sourceTree = "<group>"; };
 		43F0A82EFB0C276F557BD811 /* Pods-HUMAudioRecorder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUMAudioRecorder_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUMAudioRecorder_Example/Pods-HUMAudioRecorder_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* HUMAudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HUMAudioRecorder.app; path = HUMAudioRecorder_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E62F94BD8EBB48AB9510367 /* libPods-HUMAudioRecorder_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUMAudioRecorder_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* HUMAudioRecorder_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUMAudioRecorder_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -52,7 +53,7 @@
 		6003F5A5195388D20070C39A /* HUMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUMViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* HUMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUMViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.xctest; path = HUMAudioRecorder_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* HUMAudioRecorder_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HUMAudioRecorder_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -60,9 +61,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		980B3B44D5FF725865DE2B33 /* Pods-HUMAudioRecorder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUMAudioRecorder_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUMAudioRecorder_Tests/Pods-HUMAudioRecorder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		A1F7F72D75C30E7E839C1596 /* Pods_HUMAudioRecorder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUMAudioRecorder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D873FD783E901DFE61B6BED7 /* libPods-HUMAudioRecorder_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUMAudioRecorder_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6D767425A6B39DB58C2D5B /* Pods-HUMAudioRecorder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUMAudioRecorder_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUMAudioRecorder_Example/Pods-HUMAudioRecorder_Example.release.xcconfig"; sourceTree = "<group>"; };
-		EACC47EC20C065D0855E8301 /* Pods_HUMAudioRecorder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUMAudioRecorder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9C24703742320A7D34AECE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F99A3117491E786690B4E9CE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				16FB8A32C321ED8AB08E97F5 /* Pods_HUMAudioRecorder_Example.framework in Frameworks */,
+				12354A11ED1875C6885596BB /* libPods-HUMAudioRecorder_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				10C4BA9D2055BDE11AE9DA3D /* Pods_HUMAudioRecorder_Tests.framework in Frameworks */,
+				0DBC40BE1754BE93727C5BE0 /* libPods-HUMAudioRecorder_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +119,8 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* HUMAudioRecorder.app */,
-				6003F5AE195388D20070C39A /* Tests.xctest */,
+				6003F58A195388D20070C39A /* HUMAudioRecorder_Example.app */,
+				6003F5AE195388D20070C39A /* HUMAudioRecorder_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,8 +132,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				EACC47EC20C065D0855E8301 /* Pods_HUMAudioRecorder_Example.framework */,
-				A1F7F72D75C30E7E839C1596 /* Pods_HUMAudioRecorder_Tests.framework */,
+				D873FD783E901DFE61B6BED7 /* libPods-HUMAudioRecorder_Example.a */,
+				5E62F94BD8EBB48AB9510367 /* libPods-HUMAudioRecorder_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,7 +204,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				446148E734BFF8B64B406E4C /* Embed Pods Frameworks */,
 				018300FC293533FBAB3E89A2 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -213,7 +212,7 @@
 			);
 			name = HUMAudioRecorder_Example;
 			productName = HUMAudioRecorder;
-			productReference = 6003F58A195388D20070C39A /* HUMAudioRecorder.app */;
+			productReference = 6003F58A195388D20070C39A /* HUMAudioRecorder_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6003F5AD195388D20070C39A /* HUMAudioRecorder_Tests */ = {
@@ -224,7 +223,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				3202F01B5C1A91C73E5B3D27 /* Embed Pods Frameworks */,
 				BFB7382324266727F5A2C9FE /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -234,7 +232,7 @@
 			);
 			name = HUMAudioRecorder_Tests;
 			productName = HUMAudioRecorderTests;
-			productReference = 6003F5AE195388D20070C39A /* Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* HUMAudioRecorder_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -321,36 +319,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3202F01B5C1A91C73E5B3D27 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUMAudioRecorder_Tests/Pods-HUMAudioRecorder_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		446148E734BFF8B64B406E4C /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUMAudioRecorder_Example/Pods-HUMAudioRecorder_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AF8EA49413DE7B06DB3FFA87 /* Check Pods Manifest.lock */ = {
@@ -515,6 +483,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUMAudioRecorder/HUMAudioRecorder-Prefix.pch";
 				INFOPLIST_FILE = "HUMAudioRecorder/HUMAudioRecorder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -530,6 +499,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUMAudioRecorder/HUMAudioRecorder-Prefix.pch";
 				INFOPLIST_FILE = "HUMAudioRecorder/HUMAudioRecorder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
