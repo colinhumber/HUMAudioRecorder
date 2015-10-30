@@ -53,6 +53,8 @@
         self.audioRecorder.recorderPlaybackLevelsHandler = ^(float level) {
             weakSelf.meterLabel.text = @(level).stringValue;
         };
+        
+        [self.audioRecorder startListening];
     }];
 }
 
