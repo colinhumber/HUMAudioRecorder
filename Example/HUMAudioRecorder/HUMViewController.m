@@ -7,8 +7,8 @@
 //
 
 #import "HUMViewController.h"
-#import <HUMAudioRecorder/HUMAudioRecorder.h>
-
+//#import <HUMAudioRecorder/HUMAudioRecorder.h>
+@import HUMAudioRecorder;
 @import AVFoundation;
 
 @interface HUMViewController () <HUMAudioRecorderDelegate>
