@@ -1,0 +1,6 @@
+framework module HUMAudioRecorder {
+  umbrella header "HUMAudioRecorder-umbrella.h"
+
+  export *
+  module * { export * }
+}
