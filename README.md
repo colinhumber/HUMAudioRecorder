@@ -2,6 +2,7 @@
 
 [![CI Status](http://img.shields.io/travis/Colin Humber/HUMAudioRecorder.svg?style=flat)](https://travis-ci.org/Colin Humber/HUMAudioRecorder)
 [![Version](https://img.shields.io/cocoapods/v/HUMAudioRecorder.svg?style=flat)](http://cocoapods.org/pods/HUMAudioRecorder)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/HUMAudioRecorder.svg?style=flat)](http://cocoapods.org/pods/HUMAudioRecorder)
 [![Platform](https://img.shields.io/cocoapods/p/HUMAudioRecorder.svg?style=flat)](http://cocoapods.org/pods/HUMAudioRecorder)
 
@@ -18,6 +19,12 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "HUMAudioRecorder"
+```
+
+Or, if you're using [Carthage](https://github.com/Carthage/Carthage), simply add HUMAudioRecorder to your `Cartfile`:
+
+```
+github "colinhumber/HUMAudioRecorder"
 ```
 
 ## Usage
