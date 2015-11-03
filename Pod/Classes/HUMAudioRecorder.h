@@ -9,9 +9,24 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, HUMAudioRecorderState) {
+    /**
+     *  No recording, listening, or playback activity is occurring.
+     */
     HUMAudioRecorderStateIdle = 0,
+    
+    /**
+     *  The recorder is listening to ambient noises but is not recording.
+     */
     HUMAudioRecorderStateListening,
+    
+    /**
+     *  Recording is currently in progress and will be saved to the specified audioFileURL.
+     */
     HUMAudioRecorderStateRecording,
+    
+    /**
+     *  Audio saved to the audioFileURL is being played back.
+     */
     HUMAudioRecorderStatePlayback
 };
 
@@ -135,7 +150,9 @@ typedef void(^HUMAudioRecorderLevelBlock)(float level);
 
 @end
 
-
+/**
+ *  The delegate of the HUMAudioRecorder. All methods are optional and provide details on the current recording or playback state.
+ */
 @protocol HUMAudioRecorderDelegate <NSObject>
 @optional
 
