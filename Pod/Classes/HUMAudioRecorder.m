@@ -107,7 +107,11 @@
 }
 
 - (BOOL)deleteRecording {
-    return [self.recorder deleteRecording];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.audioFileURL.path]) {
+        return [self.recorder deleteRecording];
+    }
+    
+    return NO;
 }
 
 
