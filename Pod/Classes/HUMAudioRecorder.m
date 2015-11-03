@@ -184,6 +184,8 @@
                 [self.listener stop];
             }
             
+            [self.recorder prepareToRecord];
+            
             if (self.maxRecordingDuration > 0) {
                 [self.recorder recordForDuration:self.maxRecordingDuration];
             }
@@ -245,8 +247,6 @@
         }
     }
     
-//    self.displayLink.paused = (state == HUMAudioRecorderStateIdle);
-
     [self willChangeValueForKey:@"state"];
     _state = state;
     [self didChangeValueForKey:@"state"];
@@ -320,7 +320,6 @@
         NSError *error = nil;
         _recorder = [[AVAudioRecorder alloc] initWithURL:self.audioFileURL settings:self.settings error:&error];
         _recorder.delegate = self;
-        [_recorder prepareToRecord];
         _recorder.meteringEnabled = self.meteringEnabled;
         
         if (error && [self.delegate respondsToSelector:@selector(audioRecorderDidFailRecordingWithError:)]) {
@@ -340,7 +339,24 @@
 }
 
 
+#pragma mark - AVAudioRecorderDelegate
+
+- (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error {
+    if (self.recorder == recorder) {
+        if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailRecordingWithError:)]) {
+            [self.delegate audioRecorderDidFailRecordingWithError:error];
+        }
+    }
+}
+
+
 #pragma mark - AVAudioPlayerDelegate
+
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error {
+    if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailPlaybackWithError:)]) {
+        [self.delegate audioRecorderDidFailPlaybackWithError:error];
+    }
+}
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [self transitionToState:HUMAudioRecorderStateListening];

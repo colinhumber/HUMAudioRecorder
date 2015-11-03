@@ -42,6 +42,7 @@
                                                                                    AVNumberOfChannelsKey : @1,
                                                                                    AVEncoderAudioQualityKey : @(AVAudioQualityHigh)}];
         self.audioRecorder.delegate = self;
+        self.audioRecorder.meteringEnabled = YES;
         [self.audioRecorder addObserver:self forKeyPath:NSStringFromSelector(@selector(state)) options:0 context:NULL];
         
         __weak typeof(self)weakSelf = self;
