@@ -84,7 +84,7 @@ typedef void(^HUMAudioRecorderLevelBlock)(float level);
  *  Creates a new HUMAudioRecorder instance configured to record to the provided URL with the specified settings.
  *
  *  @param URL      The URL on the local file system where the audio will be recorded.
- *  @param settings Settings for the recording session. For information on the settings available for an audio recorder, see AV Foundation Audio Settings Constants.
+ *  @param settings Settings for the recording session. @see For information on the settings available for an audio recorder, see [AV Foundation Audio Settings Constants](https://developer.apple.com/library/mac/documentation/AVFoundation/Reference/AVFoundationAudioSettings_Constants).
  *
  *  @return An HUMAudioRecorder instance.
  */
