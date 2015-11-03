@@ -35,6 +35,11 @@ typedef void(^HUMAudioRecorderLevelBlock)(float level);
 @property (nonatomic, assign, getter=isListeningEnabled) BOOL listeningEnabled;
 
 /**
+ *  A Boolean value that indicates whether audio-level metering is enabled. The default is NO.
+ */
+@property (nonatomic, assign, getter=isMeteringEnabled) BOOL meteringEnabled;
+
+/**
  *  The max duration, in seconds, the recorder should record for. If zero or a negative number, the recorder will record indefinitely.
  */
 @property (nonatomic, assign) NSTimeInterval maxRecordingDuration;
@@ -123,7 +128,10 @@ typedef void(^HUMAudioRecorderLevelBlock)(float level);
  */
 - (void)completeSession;
 
-- (void)deleteRecording;
+/**
+ *  Deletes the recording at the @c audioFileURL. Returns YES on success, NO otherwise.
+ */
+- (BOOL)deleteRecording;
 
 @end
 

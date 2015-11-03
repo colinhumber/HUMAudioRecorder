@@ -34,10 +34,7 @@
         _audioFileURL = URL;
         _settings = settings;
         _listeningEnabled = YES;
-        
-        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateMeters:)];
-        _displayLink.paused = YES;
-        [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        _meteringEnabled = NO;
     }
     
     return self;
@@ -103,14 +100,26 @@
 }
 
 - (void)completeSession {
+    [self.displayLink invalidate];
+    self.displayLink = nil;
+    
     [self transitionToState:HUMAudioRecorderStateIdle];
 }
 
-- (void)deleteRecording {
-    [self.recorder deleteRecording];
+- (BOOL)deleteRecording {
+    return [self.recorder deleteRecording];
 }
 
+
 #pragma mark - Properties
+
+- (void)setMeteringEnabled:(BOOL)meteringEnabled {
+    if (_meteringEnabled != meteringEnabled) {
+        _meteringEnabled = meteringEnabled;
+        self.recorder.meteringEnabled = meteringEnabled;
+        self.listener.meteringEnabled = meteringEnabled;
+    }
+}
 
 - (NSData *)audioData {
     return [NSData dataWithContentsOfURL:self.audioFileURL];
@@ -157,6 +166,11 @@
             }
             
             [self.listener record];
+            
+            if (self.meteringEnabled) {
+                [self enableMetering];
+            }
+            
             break;
         }
             
@@ -176,6 +190,11 @@
             else {
                 [self.recorder record];
             }
+            
+            if (self.meteringEnabled) {
+                [self enableMetering];
+            }
+
             break;
         }
             
@@ -194,10 +213,15 @@
             if (!self.player) {
                 self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioFileURL error:nil];
                 self.player.delegate = self;
-                self.player.meteringEnabled = YES;
+                self.player.meteringEnabled = self.meteringEnabled;
             }
             
             [self.player play];
+            
+            if (self.meteringEnabled) {
+                [self enableMetering];
+            }
+
             break;
         }
             
@@ -212,13 +236,16 @@
             }
             
             [self destroyPlayer];
-
+            
+            [self.displayLink invalidate];
+            self.displayLink = nil;
+            
             [[AVAudioSession sharedInstance] setActive:NO error:nil];
             break;
         }
     }
     
-    self.displayLink.paused = (state == HUMAudioRecorderStateIdle);
+//    self.displayLink.paused = (state == HUMAudioRecorderStateIdle);
 
     [self willChangeValueForKey:@"state"];
     _state = state;
@@ -227,6 +254,13 @@
 
 
 #pragma mark - Timers and Callbacks
+
+- (void)enableMetering {
+    if (!self.displayLink) {
+        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateMeters:)];
+        [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    }
+}
 
 - (void)updateMeters:(CADisplayLink *)displayLink {
     switch (self.state) {
@@ -275,7 +309,7 @@
         _listener = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:@"/dev/null"] settings:self.settings error:nil];
         _listener.delegate = self;
         [_listener prepareToRecord];
-        _listener.meteringEnabled = YES;
+        _listener.meteringEnabled = self.meteringEnabled;
     }
     
     return _listener;
@@ -287,7 +321,7 @@
         _recorder = [[AVAudioRecorder alloc] initWithURL:self.audioFileURL settings:self.settings error:&error];
         _recorder.delegate = self;
         [_recorder prepareToRecord];
-        _recorder.meteringEnabled = YES;
+        _recorder.meteringEnabled = self.meteringEnabled;
         
         if (error && [self.delegate respondsToSelector:@selector(audioRecorderDidFailRecordingWithError:)]) {
             [self.delegate audioRecorderDidFailRecordingWithError:error];
