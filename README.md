@@ -20,6 +20,25 @@ it, simply add the following line to your Podfile:
 pod "HUMAudioRecorder"
 ```
 
+## Usage
+
+Using HUMAudioRecorder is super easy! Just make a URL where you want the file to live, setup your audio session settings, and create a new HUMAudioRecorder instance.
+
+For a list of AVFoundation settings, go [here](https://developer.apple.com/library/mac/documentation/AVFoundation/Reference/AVFoundationAudioSettings_Constants/).
+
+```objc
+NSURL *url = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a", [NSUUID UUID].UUIDString]]];
+
+NSDictionary *settings = @{ AVFormatIDKey : @(kAudioFormatMPEG4AAC),
+                            AVSampleRateKey : @44100,
+                            AVNumberOfChannelsKey : @1,
+                            AVEncoderAudioQualityKey : @(AVAudioQualityHigh)};
+
+HUMAudioRecorder *audioRecorder = [[HUMAudioRecorder alloc] initWithURL:url settings:settings];
+```
+
+The header is well documented, so check it out for a list of properties and methods. There are well defined states that can be used when this is used as the backing recorder/player for your UI.
+
 ## Author
 
 Colin Humber, colinhumber@gmail.com
