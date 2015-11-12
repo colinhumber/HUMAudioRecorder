@@ -100,9 +100,6 @@
 }
 
 - (void)completeSession {
-    [self.displayLink invalidate];
-    self.displayLink = nil;
-    
     [self transitionToState:HUMAudioRecorderStateIdle];
 }
 

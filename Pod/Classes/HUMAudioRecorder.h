@@ -123,7 +123,8 @@ typedef void(^HUMAudioRecorderLevelBlock)(float level);
 - (void)startRecording;
 
 /**
- *  Stops recording and transitions back to the HUMAudioRecorderStateListening state. No further delegate callbacks to -audioRecorder:didUpdateAveragePower: will fire.
+ *  Stops recording and transitions back to the HUMAudioRecorderStateListening state, if @c listeningEnabled is YES. Otherwise, the recorder will transition
+ *  to the HUMAudioRecorderStateIdle state. No further delegate callbacks to -audioRecorder:didUpdateAveragePower: will fire.
  */
 - (void)stopRecording;
 
@@ -139,7 +140,8 @@ typedef void(^HUMAudioRecorderLevelBlock)(float level);
 - (void)stopPlayback;
 
 /**
- *  Completes the existing recording/playback session. Deactivates the app's audio session transitions to the idle state.
+ *  Completes the existing recording/playback session. Deactivates the app's audio session transitions to the idle state. This should be called prior to using
+ *  the recorded audio to ensure the recorder, listener, and players are completely shut down and all files closed.
  */
 - (void)completeSession;
 
