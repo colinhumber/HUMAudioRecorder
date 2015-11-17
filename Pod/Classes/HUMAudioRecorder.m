@@ -40,6 +40,12 @@
     return self;
 }
 
+- (void)dealloc {
+    _listener.delegate = nil;
+    _recorder.delegate = nil;
+    _player.delegate = nil;
+}
+
 
 #pragma mark - Public Methods
 
@@ -101,6 +107,10 @@
 
 - (void)completeSession {
     [self transitionToState:HUMAudioRecorderStateIdle];
+    
+//    self.listener.delegate = nil;
+//    self.recorder.delegate = nil;
+//    self.player.delegate = nil;
 }
 
 - (BOOL)deleteRecording {
