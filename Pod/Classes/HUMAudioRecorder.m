@@ -84,7 +84,7 @@
         [self transitionToState:HUMAudioRecorderStatePlayback];
     }
     else {
-        if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailPlaybackWithError:)]) {
+        if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailPlayback:error:)]) {
             NSError *error = [NSError errorWithDomain:@"com.showbie.showbieapp"
                                                  code:kAudioFileInvalidFileError
                                              userInfo:@{ NSLocalizedDescriptionKey : NSLocalizedString(@"Unable to begin playback. The file could not be found.", @"error text") }];
@@ -107,10 +107,6 @@
 
 - (void)completeSession {
     [self transitionToState:HUMAudioRecorderStateIdle];
-    
-//    self.listener.delegate = nil;
-//    self.recorder.delegate = nil;
-//    self.player.delegate = nil;
 }
 
 - (BOOL)deleteRecording {
