@@ -159,18 +159,42 @@ typedef void(^HUMAudioRecorderLevelBlock)(float level);
 @optional
 
 /**
+ Tells the delegate that listening has stopped.
+
+ @param recorder   The recorder instance that is notifying the delegate of the event.
+ @param successful YES on successful completion of recording; NO if recording stopped because of an audio encoding error.
+ */
+- (void)audioRecorderDidFinishListening:(HUMAudioRecorder *)recorder successfully:(BOOL)successful;
+
+/**
+ Tells the delegate that recording has stopped.
+ 
+ @param recorder   The recorder instance that is notifying the delegate of the event.
+ @param successful YES on successful completion of recording; NO if recording stopped because of an audio encoding error.
+ */
+- (void)audioRecorderDidFinishRecording:(HUMAudioRecorder *)recorder successfully:(BOOL)successful;
+
+/**
+ Tells the delegate that listening has stopped.
+ 
+ @param recorder   The recorder instance that is notifying the delegate of the event.
+ @param successful YES on successful completion of playback; NO if playback stopped because the system could not decode the audio data.
+ */
+- (void)audioRecorderDidFinishPlayback:(HUMAudioRecorder *)recorder successfully:(BOOL)successful;
+
+/**
  *  Tells the delegate that a recording error has occured.
  *
  *  @param error The recording error that occured.
  */
-- (void)audioRecorderDidFailRecordingWithError:(NSError *)error;
+- (void)audioRecorderDidFailRecording:(HUMAudioRecorder *)recorder error:(NSError *)error;
 
 /**
  *  Tells the delegate that a playback error has occured.
  *
  *  @param error The playback error that occured.
  */
-- (void)audioRecorderDidFailPlaybackWithError:(NSError *)error;
+- (void)audioRecorderDidFailPlayback:(HUMAudioRecorder *)recorder error:(NSError *)error;
 
 
 @end

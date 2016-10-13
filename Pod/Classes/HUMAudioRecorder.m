@@ -88,7 +88,7 @@
             NSError *error = [NSError errorWithDomain:@"com.showbie.showbieapp"
                                                  code:kAudioFileInvalidFileError
                                              userInfo:@{ NSLocalizedDescriptionKey : NSLocalizedString(@"Unable to begin playback. The file could not be found.", @"error text") }];
-            [self.delegate audioRecorderDidFailPlaybackWithError:error];
+            [self.delegate audioRecorderDidFailPlayback:self error:error];
         }
 
         NSLog(@"Unable to playback audio at %@. The file could not be found.", self.audioFileURL);
@@ -333,8 +333,8 @@
         _recorder.delegate = self;
         _recorder.meteringEnabled = self.meteringEnabled;
         
-        if (error && [self.delegate respondsToSelector:@selector(audioRecorderDidFailRecordingWithError:)]) {
-            [self.delegate audioRecorderDidFailRecordingWithError:error];
+        if (error && [self.delegate respondsToSelector:@selector(audioRecorderDidFailRecording:error:)]) {
+            [self.delegate audioRecorderDidFailRecording:self error:error];
         }
     }
     
@@ -352,10 +352,23 @@
 
 #pragma mark - AVAudioRecorderDelegate
 
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
+    if (recorder == self.recorder) {
+        if ([self.delegate respondsToSelector:@selector(audioRecorderDidFinishRecording:successfully:)]) {
+            [self.delegate audioRecorderDidFinishRecording:self successfully:flag];
+        }
+    }
+    else if (recorder == self.listener) {
+        if ([self.delegate respondsToSelector:@selector(audioRecorderDidFinishListening:successfully:)]) {
+            [self.delegate audioRecorderDidFinishListening:self successfully:flag];
+        }
+    }
+}
+
 - (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error {
-    if (self.recorder == recorder) {
-        if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailRecordingWithError:)]) {
-            [self.delegate audioRecorderDidFailRecordingWithError:error];
+    if (recorder == self.recorder) {
+        if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailRecording:error:)]) {
+            [self.delegate audioRecorderDidFailRecording:self error:error];
         }
     }
 }
@@ -364,12 +377,16 @@
 #pragma mark - AVAudioPlayerDelegate
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error {
-    if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailPlaybackWithError:)]) {
-        [self.delegate audioRecorderDidFailPlaybackWithError:error];
+    if ([self.delegate respondsToSelector:@selector(audioRecorderDidFailPlayback:error:)]) {
+        [self.delegate audioRecorderDidFailPlayback:self error:error];
     }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    if ([self.delegate respondsToSelector:@selector(audioRecorderDidFinishPlayback:successfully:)]) {
+        [self.delegate audioRecorderDidFinishPlayback:self successfully:flag];
+    }
+    
     [self transitionToState:HUMAudioRecorderStateListening];
 }
 
