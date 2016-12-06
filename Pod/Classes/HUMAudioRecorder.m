@@ -162,11 +162,11 @@
         case HUMAudioRecorderStateListening: {
             [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:nil];
             [[AVAudioSession sharedInstance] setActive:YES error:nil];
-            if (self.recorder.recording) {
+            if (_recorder.isRecording) {
                 [self.recorder stop];
             }
             
-            if (self.player.playing) {
+            if (_player.isPlaying) {
                 [self.player stop];
             }
             
@@ -185,7 +185,7 @@
 
             [self destroyPlayer];
 
-            if (self.listener.recording) {
+            if (_listener.isRecording) {
                 [self.listener stop];
             }
             
@@ -209,11 +209,11 @@
             [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
             [[AVAudioSession sharedInstance] setActive:YES error:nil];
 
-            if (self.recorder.recording) {
+            if (_recorder.isRecording) {
                 [self.recorder stop];
             }
             
-            if (self.listener.recording) {
+            if (_listener.isRecording) {
                 [self.listener stop];
             }
             
@@ -333,7 +333,7 @@
 }
 
 - (void)destroyPlayer {
-    if (self.player.playing) {
+    if (_player.isPlaying) {
         [self.player stop];
     }
     
