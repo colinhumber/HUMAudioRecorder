@@ -25,7 +25,6 @@
 
 - (instancetype)initWithURL:(NSURL *)URL settings:(NSDictionary *)settings {
     self = [super init];
-    
     if (self) {
         NSParameterAssert(URL != nil);
         NSAssert(URL.isFileURL, @"The provided URL must be a file URL");
@@ -36,7 +35,6 @@
         _listeningEnabled = YES;
         _meteringEnabled = NO;
     }
-    
     return self;
 }
 
@@ -314,10 +312,9 @@
     if (!_listener) {
         _listener = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:@"/dev/null"] settings:self.settings error:nil];
         _listener.delegate = self;
-        [_listener prepareToRecord];
         _listener.meteringEnabled = self.meteringEnabled;
+        [_listener prepareToRecord];
     }
-    
     return _listener;
 }
 
@@ -332,7 +329,6 @@
             [self.delegate audioRecorderDidFailRecording:self error:error];
         }
     }
-    
     return _recorder;
 }
 
