@@ -234,13 +234,12 @@
             break;
         }
             
-        case HUMAudioRecorderStateIdle:
-        default: {
-            if (self.listener.recording) {
+        case HUMAudioRecorderStateIdle: {
+            if (_listener.isRecording) {
                 [self.listener stop];
             }
 
-            if (self.recorder.recording) {
+            if (_recorder.isRecording) {
                 [self.recorder stop];
             }
             
