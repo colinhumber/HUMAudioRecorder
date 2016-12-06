@@ -123,8 +123,8 @@
 - (void)setMeteringEnabled:(BOOL)meteringEnabled {
     if (_meteringEnabled != meteringEnabled) {
         _meteringEnabled = meteringEnabled;
-        self.recorder.meteringEnabled = meteringEnabled;
-        self.listener.meteringEnabled = meteringEnabled;
+        _recorder.meteringEnabled = meteringEnabled;
+        _listener.meteringEnabled = meteringEnabled;
     }
 }
 
