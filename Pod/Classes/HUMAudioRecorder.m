@@ -279,8 +279,16 @@
             break;
         
         case HUMAudioRecorderStateRecording:
-            self.currentTime = self.recorder.currentTime;
-
+            // if recording with a max duration, clamp the current time to be between the recorder current time and the max duration.
+            // when setting up a recorder with -recordForDuration:, once the max duration is hit the recorder stops and the current time
+            // is 0, but we want to report the actual record time at that point, which is the maxRecordingDuration
+            if (self.maxRecordingDuration > 0) {
+                self.currentTime = MIN(MAX(self.currentTime, self.recorder.currentTime), self.maxRecordingDuration);
+            }
+            else {
+                self.currentTime = self.recorder.currentTime;
+            }
+            
             if (self.recorderPlaybackLevelsHandler) {
                 [self.recorder updateMeters];
                 self.recorderPlaybackLevelsHandler([self.recorder averagePowerForChannel:0]);
