@@ -386,7 +386,12 @@
         [self.delegate audioRecorderDidFinishPlayback:self successfully:flag];
     }
     
-    [self transitionToState:HUMAudioRecorderStateListening];
+    if ([self canTransitionToState:HUMAudioRecorderStateListening]) {
+        [self transitionToState:HUMAudioRecorderStateListening];
+    }
+    else {
+        [self transitionToState:HUMAudioRecorderStateIdle];
+    }
 }
 
 @end
